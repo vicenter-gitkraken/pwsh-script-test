@@ -1,16 +1,16 @@
 [CmdletBinding()]
-Param()
+Param([string] $commitFile)
+
+$messageContent = Get-Content $commitFile
 $passReturnCode = 0
 $failReturnCode = 1
-$foo = 1
-if(0 -eq $foo) {
-Write-Output "First condition"
+
+if($messageContent -like "*:*") {
 Write-Verbose "Passed all the checks"
 exit $passReturnCode
+} else {
+    Write-Host "Missing commit delimeter ':' in: "$messageContent -ForegroundColor Red
+    exit $failReturnCode
 }
 
-if(1 -eq $foo) {
-    Write-Output "Second condition"
-Write-Host "Missing commit delimeter ':'" -ForegroundColor Red
-exit $failReturnCode
-}
+
