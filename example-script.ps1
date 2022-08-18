@@ -3,15 +3,14 @@ Param()
 $passReturnCode = 0
 $failReturnCode = 1
 $foo = 1
-if(1 -eq $foo) {
+if(0 -eq $foo) {
 Write-Output "First condition"
 Write-Verbose "Passed all the checks"
-return $passReturnCode
-exit
+exit $passReturnCode
 }
-if(1 -ne $foo) {
+
+if(1 -eq $foo) {
     Write-Output "Second condition"
 Write-Host "Missing commit delimeter ':'" -ForegroundColor Red
-return $failReturnCode
-exit
+exit $failReturnCode
 }

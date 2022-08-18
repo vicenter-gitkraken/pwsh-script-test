@@ -1,2 +1,4 @@
 #!/bin/sh
-c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -ExecutionPolicy RemoteSigned -File 'C:\Users\test\scripts\githooks\example-script.ps1' -Verbose
+echo
+exec c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -ExecutionPolicy RemoteSigned -File 'C:\Users\test\scripts\githooks\example-script.ps1' -Verbose
+exit
